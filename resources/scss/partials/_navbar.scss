@@ -1,0 +1,18 @@
+#main-box {
+    background-color: $dark-blue;
+}
+
+#drop-nav {
+    background-color: $dark-blue;
+
+    a {
+        color: white;
+        &:hover{
+            background-color: $pink;
+        }
+    }
+}
+
+.bbb:hover {
+    color:$pink;
+}
