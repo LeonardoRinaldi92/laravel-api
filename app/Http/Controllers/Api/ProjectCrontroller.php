@@ -10,7 +10,7 @@ class ProjectCrontroller extends Controller
 {
     public function index() {
     
-        $projects = Project::with('type','tags')->paginate(6);
+        $projects = Project::with('type','tags')->orderBy('created_at', 'desc')->paginate(6);
 
         return response()->json([
             'success' => true,
