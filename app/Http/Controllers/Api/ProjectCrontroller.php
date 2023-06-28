@@ -14,7 +14,7 @@ class ProjectCrontroller extends Controller
 
         return response()->json([
             'success' => true,
-            'posts' => $projects
+            'projects' => $projects
         ]);
     }
 }
