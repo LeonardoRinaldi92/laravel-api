@@ -18,4 +18,23 @@ class ProjectCrontroller extends Controller
             
         ]);
     }
+
+    public function show($slug) {
+
+        $project = Project::with('type','tags')->where('slug',$slug)->first();
+
+        if($project) {
+            return response()->json([
+                'success' => false,
+                'projects' => $project
+            ]);
+        } else {
+            return response()->jsrn([
+                'success' => false,
+                'erroe' => 'no post avaible'
+            ]);
+
+        }
+
+    }
 }

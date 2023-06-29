@@ -20,3 +20,4 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/projects',[ProjectCrontroller::class, 'index']);
+Route::get('/projects/{slug}',[ProjectCrontroller::class, 'show']);
