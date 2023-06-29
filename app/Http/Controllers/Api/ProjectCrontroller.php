@@ -25,13 +25,13 @@ class ProjectCrontroller extends Controller
 
         if($project) {
             return response()->json([
-                'success' => false,
+                'success' => true,
                 'projects' => $project
             ]);
         } else {
-            return response()->jsrn([
+            return response()->json([
                 'success' => false,
-                'erroe' => 'no post avaible'
+                'errore' => 'no post avaible'
             ]);
 
         }
