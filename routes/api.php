@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ProjectCrontroller;
+use App\Http\Controllers\Api\TypeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/projects',[ProjectCrontroller::class, 'index']);
 Route::get('/projects/{slug}',[ProjectCrontroller::class, 'show']);
+Route::get('types',[TypeController::class, 'index']);

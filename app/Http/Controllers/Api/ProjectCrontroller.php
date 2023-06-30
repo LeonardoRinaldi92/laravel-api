@@ -32,7 +32,7 @@ class ProjectCrontroller extends Controller
             return response()->json([
                 'success' => false,
                 'errore' => 'no post avaible'
-            ]);
+            ])->setStatusCode(404);
 
         }
 
