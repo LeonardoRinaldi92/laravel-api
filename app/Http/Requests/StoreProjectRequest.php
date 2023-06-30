@@ -33,7 +33,8 @@ class StoreProjectRequest extends FormRequest
             'type_id' => ['required', 'int', 'exists:types,id'],
             'slug'=> ['string'],
             'visibility'=>['boolean'],
-            'tags' => ['required', 'exists:tags,id']
+            'tags' => ['required', 'exists:tags,id'],
+            'project_link' => ['required', 'string']
         ];
     }
 
@@ -48,6 +49,7 @@ class StoreProjectRequest extends FormRequest
         'type_id' => 'i programmi usati per il progetto',
         'visbility' => 'la visibiltà del progetto',
         'tags' => 'i tags',
+        'project_link' => 'il link del progetto'
 
        ];
    }

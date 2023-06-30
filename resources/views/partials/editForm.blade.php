@@ -92,6 +92,15 @@
                 @enderror
             </div>
 
+            <div class="form-group">
+                <label for="project-project_link" class="form-label text-white-50">Link progetto</label>
+                <input type="text" required max="255"  id="project-project_link" class="form-control"
+                placeholder="Inserisci link del progetto" name="project_link" value="{{ old('project_link') ?? $project->project_link}}">
+                @error('project_link')
+                    <span style="color: red; text-transform: uppercase">{{$message}}</span>
+                @enderror
+            </div>
+
             <button type="submit" class="my-3 btn btn-primary">Modifica Proggetto </button>
         </form>
     </div>

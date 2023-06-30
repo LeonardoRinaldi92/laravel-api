@@ -24,6 +24,7 @@ return new class extends Migration
             $table->unsignedBigInteger('type_id');
             $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
             $table->boolean('visibility')->default(true);
+            $table->string('project_link');
             $table->timestamps();
         });
     }

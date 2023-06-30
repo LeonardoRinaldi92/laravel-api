@@ -27,6 +27,7 @@ class ProjectsTableSeeder extends Seeder
             $newProject->relase_date = $faker->dateTimeBetween('-20 week', '+20 week');
             $newProject->type_id= $faker->numberBetween(1, 4);
             $newProject->visibility = true;
+            $newProject->project_linke = 'https:://non_lo_so.it';
             $newProject->save();
         }
     }

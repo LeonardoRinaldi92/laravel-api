@@ -8,9 +8,17 @@ use Illuminate\Http\Request;
 
 class ProjectCrontroller extends Controller
 {
-    public function index() {
-    
-        $projects = Project::with('type','tags')->orderBy('created_at', 'desc')->paginate(6);
+    public function index(Request $request) {
+
+        if($request->has('type_id')){
+
+            $projects = Project::with('type','tags')->where('type_id',$request->type_id)->orderBy('created_at', 'desc')->paginate(6);
+
+        } else {
+
+            $projects = Project::with('type','tags')->orderBy('created_at', 'desc')->paginate(6);
+        }
+        
 
         return response()->json([
             'success' => true,
