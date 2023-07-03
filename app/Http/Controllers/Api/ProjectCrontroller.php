@@ -10,15 +10,28 @@ class ProjectCrontroller extends Controller
 {
     public function index(Request $request) {
 
-        if($request->has('type_id')){
+        $query = Project::with(['type','tags']);
 
-            $projects = Project::with('type','tags')->where('type_id',$request->type_id)->orderBy('created_at', 'desc')->paginate(6);
 
-        } else {
-
-            $projects = Project::with('type','tags')->orderBy('created_at', 'desc')->paginate(6);
+        if( $request->has( 'type_id' ) ){
+            $query->where( 'type_id', $request->type_id );
         }
-        
+
+        if ($request->has('tags_ids')) {
+            $tagIds = explode(',', $request->tags_ids);
+            $query->where(function ($query) use ($tagIds) {
+                foreach ($tagIds as $tagId) {
+                    $query->whereHas('tags', function ($query) use ($tagId) {
+                        $query->where('tags.id', $tagId);
+                    });
+                }
+            });
+        }
+
+
+
+
+        $projects = $query->orderBy('created_at', 'desc')->paginate(6);
 
         return response()->json([
             'success' => true,
